@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Platformer397
 {
     [RequireComponent(typeof(Rigidbody))] //object requires this and will make one for it if it does not have it
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : Subject
     {
         //player comps
         [SerializeField] private InputReader input;
@@ -26,6 +26,7 @@ namespace Platformer397
         private void Start()
         {
             input.EnablePlayerActions();
+            NotifyObservers();
         }
         private void OnEnable()
         {
